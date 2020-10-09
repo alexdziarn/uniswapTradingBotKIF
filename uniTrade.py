@@ -77,6 +77,7 @@ def run(lower_bound, upper_bound, holding=""):
     asset = holding
     while True:
         price = get_price_kif_to_eth()
+        time.sleep(1)
         if price < lower_bound and asset != "kif":
             buy_kif((web3.eth.getBalance(keys["my_account"])*keys["percentage_of_eth"])/1000000000000000000, keys["slippage"], keys["receiver_account"])
             asset = "kif"
